@@ -12,4 +12,14 @@ public class InputPanelData {
         this.sndNum = snd;
 
     }
+
+    public Double getFstNum(){
+        return fstNum;
+    }
+    public Double getSndNum(){
+        return sndNum;
+    }
+    public ALG_OPERATION getAlgOperation(){
+        return alg_operation;
+    }
 }

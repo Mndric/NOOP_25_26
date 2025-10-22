@@ -3,6 +3,9 @@ package pckg_VJ_Z1_b;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
 
 public class InputPanel extends JPanel {
 
@@ -10,6 +13,7 @@ public class InputPanel extends JPanel {
     private JTextField sndNumField;
     private JComboBox<ALG_OPERATION> algOperationCombo;
     private JButton calculateButton;
+    private InputPanelListener inputPanelListener;
 
 
     public InputPanel(){
@@ -24,6 +28,9 @@ public class InputPanel extends JPanel {
         initComponents();
         layoutComponents();
         activatePanel();
+    }
+    public void setInputPanelListener(InputPanelListener inputPanelListener){
+        this.inputPanelListener = inputPanelListener;
     }
 
     private void initComponents() {
@@ -71,6 +78,25 @@ public class InputPanel extends JPanel {
     }
 
     private void activatePanel() {
+
+        calculateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                try{
+                    Double fst = Double.parseDouble(fstNumField.getText());
+                    Double snd = Double.parseDouble(sndNumField.getText());
+                    ALG_OPERATION alg_operation =  (ALG_OPERATION) algOperationCombo.getSelectedItem();
+                    InputPanelData inputPanelData = new InputPanelData(fst, snd, alg_operation);
+                    if(inputPanelListener != null){
+                        inputPanelListener.inputPanelEventOccurred(inputPanelData);
+                    }
+                }catch(NumberFormatException nfe){
+
+                    JOptionPane.showMessageDialog(InputPanel.this, nfe.getMessage(), "Exception input", JOptionPane.ERROR_MESSAGE);
+
+                }
+            }
+        });
     }
 
 

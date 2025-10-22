@@ -20,6 +20,7 @@ public class PresentationPanel extends JPanel {
 
     private void initComponents() {
         this.resultField = new JTextField(15);
+        resultField.setEditable(false);
         this.allResults = new JTextArea(10, 15);
         this.resultsScrollPane = new JScrollPane(allResults, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);    }
 
@@ -45,5 +46,11 @@ public class PresentationPanel extends JPanel {
 
     }
 
+    public void setResult(String result){
+        resultField.setText(result);
+    }
 
+    public void addResultToAll(String res){
+        allResults.append(res + "\n");
+    }
 }
