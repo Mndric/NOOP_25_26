@@ -11,6 +11,6 @@ public class EnumerationConcrete<E> implements Enumeration<E> {
 
     @Override
     public E nextElement() {
-        return (E) new String (1000);
+        return (E) new String ("1000");
     }
 }
