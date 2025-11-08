@@ -4,8 +4,7 @@ import pckg_VJ_Z1_b.CalculationStrategy;
 
 public class Addition implements Kalkulacija {
     @Override
-    public Double performCalculation(Double fst, Double snd) {
+    public float performCalculation(float fst, float snd) {
         return fst + snd;
     }
-
 }
