@@ -19,7 +19,7 @@ public class WritingOffice {
 
     @Override
     public String toString() {
-        return "WritingOffice{" +
+        return "WritingOffice:" +
                 "someNovelWriter=" + someNovelWriter +
                 '}';
     }
